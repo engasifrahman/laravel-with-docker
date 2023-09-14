@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: app
+    build:
+      args:
+        user: asif
+        uid: 1412
+      context: ./docker
+      dockerfile: /php-fpm/Dockerfile
+    volumes:
+      - ./src:/var/www/
+      - .env.dev:/var/www/.env
+    ports:
+      - "8080:80"
+    env_file:
+      - .env.dev
+    environment:
+      - APP_ENV=dev
+    working_dir: /var/www/
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app  
+    restart: unless-stopped
+  
