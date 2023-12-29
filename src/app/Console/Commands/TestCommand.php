@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class TestCommand extends Command
 {
@@ -11,7 +12,7 @@ class TestCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:test-command';
+    protected $signature = 'app:test';
 
     /**
      * The console command description.
@@ -25,6 +26,9 @@ class TestCommand extends Command
      */
     public function handle()
     {
-        //
+        $this->info('Hello');
+        Storage::put('test.txt', 'hey buddy!');
+        sleep(10);
+        Storage::delete('test.txt', 'hey buddy!');
     }
 }
