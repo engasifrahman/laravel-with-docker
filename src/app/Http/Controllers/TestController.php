@@ -16,10 +16,12 @@ class TestController extends Controller
 
     public function B() {
         // Implement method B here
+        return 'This is B';
     }
 
     public function C() {
         // Implement method C here
+        return 'This is C';
     }
 
     private function C_Helper() {
@@ -28,5 +30,6 @@ class TestController extends Controller
 
     public function D() {
         // Implement method D here
+        return 'This is D';
     }
 }
