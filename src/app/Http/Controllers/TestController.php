@@ -11,6 +11,7 @@ class TestController extends Controller
 
     public function A() {
         // Implement method A here
+        
         return 'This is A';
     }
 
