@@ -11,11 +11,13 @@ class TestController extends Controller
 
     public function A() {
         // Implement method A here
+
         return 'This is A';
     }
 
     public function B() {
         // Implement method B here
+        
         return 'This is B';
     }
 
